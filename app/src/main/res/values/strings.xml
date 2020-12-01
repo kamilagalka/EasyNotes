@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EasyNotes</string>
+    <string name="start_button_text">Let\'s go!</string>
+    <string name="about_author_button_text">About author</string>
+</resources>
