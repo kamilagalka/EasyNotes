@@ -19,6 +19,7 @@
         android:paddingEnd="10dp"
         android:paddingRight="10dp"
         android:text="@string/start_button_text"
+        android:onClick="letsGo"
         android:textAllCaps="true"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -39,6 +40,7 @@
         android:paddingEnd="15dp"
         android:paddingRight="15dp"
         android:text="@string/about_author_button_text"
+        android:onClick="goToAboutAuthor"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -68,6 +70,7 @@
         android:id="@+id/help_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="goToInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_help" />
