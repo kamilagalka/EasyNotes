@@ -1,14 +1,29 @@
 package com.example.easynotes;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-
 public class MainActivity extends AppCompatActivity {
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void letsGo(View view) {
+        Log.d(LOG_TAG, "Button 'LETS GO' clicked!");
+    }
+
+    public void goToAboutAuthor(View view) {
+        Log.d(LOG_TAG, "Button 'ABOUT AUTHOR' clicked!");
+    }
+
+    public void goToInfo(View view) {
+        Log.d(LOG_TAG, "Button '?' clicked!");
     }
 }
