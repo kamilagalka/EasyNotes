@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void letsGo(View view) {
         Log.d(LOG_TAG, "Button 'LETS GO' clicked!");
+        Intent intent = new Intent(this, MyNotes.class);
+        startActivity(intent);
     }
 
     public void goToAboutAuthor(View view) {

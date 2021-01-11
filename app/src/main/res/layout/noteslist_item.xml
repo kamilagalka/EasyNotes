@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/note"
+        android:textAlignment="center"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:fontFamily="sans-serif-condensed"
+        android:background="@drawable/default_border"
+        android:textSize="40sp"
+
+        android:text="testtesttest"
+        android:gravity="center_horizontal|center_vertical" />
+
+</LinearLayout>
