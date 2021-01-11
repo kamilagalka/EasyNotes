@@ -28,20 +28,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="40dp"
         android:background="@color/background"
-        android:padding="5dp"
-        android:paddingBottom="100dp"
-        android:clipToPadding="false"
+        android:clipToPadding="true"
+        android:paddingBottom="250dp"
         app:flow_lastVerticalBias="20"
         app:layout_constraintBottom_toTopOf="@+id/add_note"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/up_hint"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toBottomOf="@+id/my_notes_heading"
+        app:layout_constraintVertical_bias="0.093"
+        tools:itemCount="30" />
 
     <Button
         android:id="@+id/add_note"
@@ -57,6 +57,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="35sp"
+        android:onClick="addNote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -64,7 +65,7 @@
         android:id="@+id/up_hint"
         android:layout_width="107dp"
         android:layout_height="38dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="84dp"
         android:rotation="270"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

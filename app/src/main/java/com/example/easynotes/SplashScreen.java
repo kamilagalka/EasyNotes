@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class SplashScreen extends AppCompatActivity {
     private static final String LOG_TAG = SplashScreen.class.getSimpleName();
-    private static final int SPLASH_SHOW_TIME = 4000;
+    private static final int SPLASH_SHOW_TIME = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

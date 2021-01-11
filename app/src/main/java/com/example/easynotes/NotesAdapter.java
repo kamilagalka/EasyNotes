@@ -9,15 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
-    private final ArrayList<String> notes;
+    private final LinkedList<HashMap<String, String>> notes;
     private LayoutInflater mInflater;
 
 
-    public NotesAdapter(Context context, ArrayList<String> notes) {
+    public NotesAdapter(Context context, LinkedList<HashMap<String, String>> notes) {
         mInflater = LayoutInflater.from(context);
         this.notes = notes;
     }
@@ -32,7 +32,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        String mCurrent = notes.get(position);
+        String mCurrent = notes.get(position).get("noteName");
+        if (mCurrent.length() > 18){
+            mCurrent = mCurrent.substring(0, 15) + "...";
+        }
         holder.noteItemView.setText(mCurrent);
     }
 
@@ -41,7 +44,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         return notes.size();
     }
 
-    public class NoteViewHolder extends RecyclerView.ViewHolder {
+    public class NoteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView noteItemView;
         final NotesAdapter mAdapter;
 
@@ -49,6 +52,18 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             super(itemView);
             noteItemView = itemView.findViewById(R.id.note);
             this.mAdapter = adapter;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int mPosition = getLayoutPosition();
+            HashMap<String, String> element = notes.get(mPosition);
+            HashMap<String, String> newElement = new HashMap<>();
+            newElement.put("noteName", "Clicked!");
+            newElement.put("noteContent", "Content clicked!");
+            notes.set(mPosition, newElement);
+            mAdapter.notifyDataSetChanged();
         }
     }
 }
