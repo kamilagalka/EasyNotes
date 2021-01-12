@@ -40,4 +40,10 @@ public class AddNote extends AppCompatActivity {
         Log.d(LOG_TAG, noteContent);
         finish();
     }
+
+    public void discardAddition(View view) {
+        Log.d(LOG_TAG, "Discarding addition");
+        finish();
+
+    }
 }

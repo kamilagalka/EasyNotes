@@ -46,4 +46,9 @@ public class EditNote extends AppCompatActivity {
         Log.d(LOG_TAG, noteContent);
         finish();
     }
+
+    public void discardEdition(View view) {
+        Log.d(LOG_TAG, "Discarding edition");
+        finish();
+    }
 }
