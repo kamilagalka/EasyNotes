@@ -33,8 +33,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.383"
-        app:srcCompat="@drawable/sticky_notes"
-        tools:srcCompat="@drawable/sticky_notes"
+        app:srcCompat="@drawable/icon"
+        tools:srcCompat="@drawable/icon"
         tools:visibility="visible" />
 
     <TextView

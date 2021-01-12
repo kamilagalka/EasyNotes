@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.714"
-        app:srcCompat="@drawable/sticky_notes" />
+        app:srcCompat="@drawable/icon" />
 
     <ImageView
         android:id="@+id/logo2"
@@ -28,7 +28,7 @@
         app:layout_constraintStart_toEndOf="@+id/add_note_heading"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.714"
-        app:srcCompat="@drawable/sticky_notes" />
+        app:srcCompat="@drawable/icon" />
 
     <TextView
         android:id="@+id/add_note_heading"
