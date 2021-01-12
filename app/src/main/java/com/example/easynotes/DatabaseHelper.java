@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.logging.Logger;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = DatabaseHelper.class.getSimpleName();
 
@@ -69,17 +71,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(int row_id, String name, String content){
+    void updateData(String row_id, String name, String content){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(NOTE_NAME, name);
         cv.put(NOTE_CONTENT, content);
-
-        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id+""});
-        if(result == -1){
+        Log.i(LOG_TAG, row_id+"");
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if(result != 1){
             Log.i(LOG_TAG, "Failed to update note");
         }else {
-            Log.i(LOG_TAG, "Note updated succesfully!");
+            Log.i(LOG_TAG, "Note updated succesfully! "+ result);
         }
 
     }
@@ -90,12 +92,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             Log.i(LOG_TAG, "Failed to delete note");
         }else {
-            Log.i(LOG_TAG, "Note deleted succesfully!");
+            Log.i(LOG_TAG, "Note deleted succesfully!: "+result);
         }
     }
 
     void deleteAllData(){
+        Log.i(LOG_TAG, "Deleting all data");
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
+        Log.i(LOG_TAG, "Deleting all data finished");
+
     }
 }

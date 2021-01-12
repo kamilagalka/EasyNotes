@@ -77,6 +77,7 @@ public class MyNotes extends AppCompatActivity {
 //        mockNotes(2);
         while (cursor.moveToNext()){
             HashMap<String, String> note = new HashMap<String, String>();
+            note.put("noteId", String.valueOf(cursor.getInt(0)));
             note.put("noteName", cursor.getString(1));
             note.put("noteContent", cursor.getString(2));
 

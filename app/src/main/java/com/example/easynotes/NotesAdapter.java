@@ -67,7 +67,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             int mPosition = getLayoutPosition();
             HashMap<String, String> element = notes.get(mPosition);
             Intent intent = new Intent(context, EditNote.class);
-            intent.putExtra("EXTRA_NOTE_ID", mPosition);
+            intent.putExtra("EXTRA_NOTE_ID", element.get("noteId"));
             intent.putExtra("EXTRA_NOTE_NAME", element.get("noteName"));
             intent.putExtra("EXTRA_NOTE_CONTENT", element.get("noteContent"));
             activity.startActivityForResult(intent, 1);

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditNote extends AppCompatActivity {
     private static final String LOG_TAG = EditNote.class.getSimpleName();
-    int noteId;
+    String noteId;
     String noteName;
     String noteContent;
     private EditText noteNameEditText;
@@ -25,7 +25,7 @@ public class EditNote extends AppCompatActivity {
         noteNameEditText = (EditText) findViewById(R.id.noteName);
         noteContentEditText = (EditText) findViewById(R.id.noteContent);
 
-        noteId = getIntent().getIntExtra("EXTRA_NOTE_ID", 0);
+        noteId = getIntent().getStringExtra("EXTRA_NOTE_ID");
         noteName = getIntent().getStringExtra("EXTRA_NOTE_NAME");
         noteContent = getIntent().getStringExtra("EXTRA_NOTE_CONTENT");
 
@@ -37,7 +37,7 @@ public class EditNote extends AppCompatActivity {
         DatabaseHelper myDB = new DatabaseHelper(EditNote.this);
         noteName = noteNameEditText.getText().toString().trim();
         noteContent = noteContentEditText.getText().toString().trim();
-        myDB.updateData(noteId+1, noteName, noteContent);
+        myDB.updateData(noteId, noteName, noteContent);
 
 //        String editedNoteName = noteNameEditText.getText().toString();
 //        String editedNoteContent = noteContentEditText.getText().toString();
