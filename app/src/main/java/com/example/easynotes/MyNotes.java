@@ -2,18 +2,23 @@ package com.example.easynotes;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 public class MyNotes extends AppCompatActivity {
     private static final String LOG_TAG = MyNotes.class.getSimpleName();
@@ -22,11 +27,15 @@ public class MyNotes extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotesAdapter notesAdapter;
 
+    ConstraintLayout constraintLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_notes);
         myDB = new DatabaseHelper(MyNotes.this);
+
+        constraintLayout = findViewById(R.id.constraint_layout);
 
         Cursor cursor = myDB.readAllData();
         getNotes(cursor);
@@ -44,6 +53,8 @@ public class MyNotes extends AppCompatActivity {
         notesAdapter = new NotesAdapter(MyNotes.this, this, notes);
         recyclerView.setAdapter(notesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        enableSwipeToDeleteAndUndo();
     }
 
     @Override
@@ -85,5 +96,40 @@ public class MyNotes extends AppCompatActivity {
         }
         Log.d(LOG_TAG, "getting notes finished");
 
+    }
+
+
+    private void enableSwipeToDeleteAndUndo() {
+        SwipeToDeleteCallback swipeToDeleteCallback = new SwipeToDeleteCallback(this) {
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+
+
+                final int position = viewHolder.getAdapterPosition();
+                final HashMap<String, String> item = notesAdapter.getData().get(position);
+
+                notesAdapter.removeItem(position);
+
+
+                Snackbar snackbar = Snackbar
+                        .make(constraintLayout, "Your note was removed.", Snackbar.LENGTH_LONG);
+                snackbar.setAction("UNDO", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        notesAdapter.restoreItem(item, position);
+                        recyclerView.scrollToPosition(position);
+                    }
+                });
+
+                snackbar.setActionTextColor(Color.WHITE);
+                snackbar.setDuration(3000);
+                snackbar.show();
+
+            }
+        };
+
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeToDeleteCallback);
+        itemTouchhelper.attachToRecyclerView(recyclerView);
     }
 }

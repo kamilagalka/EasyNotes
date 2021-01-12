@@ -38,7 +38,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
         String mCurrent = notes.get(position).get("noteName");
-        if (mCurrent.length() > 18){
+        if (mCurrent.length() > 18) {
             mCurrent = mCurrent.substring(0, 15) + "...";
         }
         holder.noteItemView.setText(mCurrent);
@@ -77,5 +77,29 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 //            notes.set(mPosition, newElement);
 //            mAdapter.notifyDataSetChanged();
         }
+    }
+
+    public void removeItem(int position) {
+        DatabaseHelper myDB = new DatabaseHelper(NotesAdapter.this.context);
+        String elem_id = notes.get(position).get("noteId");
+        notes.remove(position);
+        myDB.deleteOneRow(elem_id);
+
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, getItemCount());
+
+    }
+
+    public void restoreItem(HashMap<String, String> item, int position) {
+        DatabaseHelper myDB = new DatabaseHelper(NotesAdapter.this.context);
+        myDB.addNote(item.get("noteName"), item.get("noteContent"));
+        notes.add(position, item);
+
+        notifyItemInserted(position);
+        notifyItemRangeChanged(position, getItemCount());
+    }
+
+    public LinkedList<HashMap<String, String>> getData() {
+        return notes;
     }
 }
