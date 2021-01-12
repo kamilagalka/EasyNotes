@@ -24,6 +24,9 @@ public class MyNotes extends AppCompatActivity {
 
         notes = mockNotes(3);
 
+        String noteName = getIntent().getStringExtra("EXTRA_NOTE_NAME");
+        String noteContent = getIntent().getStringExtra("EXTRA_NOTE_CONTENT");
+
         recyclerView = findViewById(R.id.recycler_view);
         notesAdapter = new NotesAdapter(this, notes);
         recyclerView.setAdapter(notesAdapter);
@@ -35,7 +38,7 @@ public class MyNotes extends AppCompatActivity {
         for (int i = 0; i < numOfNotes; i++) {
             HashMap<String, String> note = new HashMap<>();
             note.put("noteName","my note " + i);
-            note.put("noteContent", "bla bla bla note "+ i);
+            note.put("noteContent", "bla bla bla note bla bla bla note bla bla bla note bla bla bla note bla bla bla note bla bla bla note bla bla bla note bla bla bla note "+ i);
             mockedNotes.add(note);
         }
         return mockedNotes;

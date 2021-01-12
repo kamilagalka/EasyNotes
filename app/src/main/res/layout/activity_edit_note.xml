@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".EditNote">
+
+    <ImageView
+        android:id="@+id/logo1"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_note_heading"
+        app:layout_constraintEnd_toStartOf="@+id/edit_note_heading"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.714"
+        app:srcCompat="@drawable/sticky_notes" />
+
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="108dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_note_heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit_note_heading"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.714"
+        app:srcCompat="@drawable/sticky_notes" />
+
+    <TextView
+        android:id="@+id/edit_note_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/edit_note_heading"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/noteName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/default_border"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:maxLength="30"
+        android:text="None"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/noteContent"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/default_border"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:text="None"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteName"
+        app:layout_constraintVertical_bias="0.302" />
+
+    <Button
+        android:id="@+id/imageButton"
+        android:layout_width="119dp"
+        android:layout_height="145dp"
+        android:layout_marginBottom="136dp"
+        android:onClick="editNote"
+        android:text="HERE"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        tools:srcCompat="@android:drawable/ic_menu_save" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

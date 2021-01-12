@@ -1,6 +1,7 @@
 package com.example.easynotes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,9 +48,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     public class NoteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView noteItemView;
         final NotesAdapter mAdapter;
+        private final Context context;
 
         public NoteViewHolder(View itemView, NotesAdapter adapter) {
             super(itemView);
+            context = itemView.getContext();
             noteItemView = itemView.findViewById(R.id.note);
             this.mAdapter = adapter;
             itemView.setOnClickListener(this);
@@ -59,11 +62,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         public void onClick(View view) {
             int mPosition = getLayoutPosition();
             HashMap<String, String> element = notes.get(mPosition);
-            HashMap<String, String> newElement = new HashMap<>();
-            newElement.put("noteName", "Clicked!");
-            newElement.put("noteContent", "Content clicked!");
-            notes.set(mPosition, newElement);
-            mAdapter.notifyDataSetChanged();
+            Intent intent = new Intent(context, EditNote.class);
+            intent.putExtra("EXTRA_NOTE_NAME", element.get("noteName"));
+            intent.putExtra("EXTRA_NOTE_CONTENT", element.get("noteContent"));
+            context.startActivity(intent);
+//            newElement.put("noteName", "Clicked!");
+//            newElement.put("noteContent", "Content clicked!");
+//            notes.set(mPosition, newElement);
+//            mAdapter.notifyDataSetChanged();
         }
     }
 }
