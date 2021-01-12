@@ -1,5 +1,6 @@
 package com.example.easynotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditNote extends AppCompatActivity {
     private static final String LOG_TAG = EditNote.class.getSimpleName();
-
+    int noteId;
+    String noteName;
+    String noteContent;
     private EditText noteNameEditText;
     private EditText noteContentEditText;
 
@@ -22,18 +25,25 @@ public class EditNote extends AppCompatActivity {
         noteNameEditText = (EditText) findViewById(R.id.noteName);
         noteContentEditText = (EditText) findViewById(R.id.noteContent);
 
-        String noteName = getIntent().getStringExtra("EXTRA_NOTE_NAME");
-        String noteContent = getIntent().getStringExtra("EXTRA_NOTE_CONTENT");
+        noteId = getIntent().getIntExtra("EXTRA_NOTE_ID", 0);
+        noteName = getIntent().getStringExtra("EXTRA_NOTE_NAME");
+        noteContent = getIntent().getStringExtra("EXTRA_NOTE_CONTENT");
 
         noteNameEditText.setText(noteName);
         noteContentEditText.setText(noteContent);
     }
 
     public void editNote(View view) {
-        String editedNoteName = noteNameEditText.getText().toString();
-        String editedNoteContent = noteContentEditText.getText().toString();
-        Log.d(LOG_TAG, editedNoteName);
-        Log.d(LOG_TAG, editedNoteContent);
+        DatabaseHelper myDB = new DatabaseHelper(EditNote.this);
+        noteName = noteNameEditText.getText().toString().trim();
+        noteContent = noteContentEditText.getText().toString().trim();
+        myDB.updateData(noteId+1, noteName, noteContent);
 
+//        String editedNoteName = noteNameEditText.getText().toString();
+//        String editedNoteContent = noteContentEditText.getText().toString();
+        Log.d(LOG_TAG, noteId+"");
+        Log.d(LOG_TAG, noteName);
+        Log.d(LOG_TAG, noteContent);
+        finish();
     }
 }

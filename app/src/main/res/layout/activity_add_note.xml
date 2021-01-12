@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".EditNote">
+    tools:context=".AddNote">
 
     <ImageView
         android:id="@+id/logo1"
         android:layout_width="108dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_note_heading"
-        app:layout_constraintEnd_toStartOf="@+id/edit_note_heading"
+        app:layout_constraintBottom_toBottomOf="@+id/add_note_heading"
+        app:layout_constraintEnd_toStartOf="@+id/add_note_heading"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,20 +23,20 @@
         android:id="@+id/logo2"
         android:layout_width="108dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_note_heading"
+        app:layout_constraintBottom_toBottomOf="@+id/add_note_heading"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_note_heading"
+        app:layout_constraintStart_toEndOf="@+id/add_note_heading"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.714"
         app:srcCompat="@drawable/sticky_notes" />
 
     <TextView
-        android:id="@+id/edit_note_heading"
+        android:id="@+id/add_note_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/edit_note_heading"
+        android:text="@string/add_note_heading"
         android:textColor="@color/colorPrimary"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -46,14 +46,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/noteName"
+        android:id="@+id/addNoteName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="112dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
         android:background="@drawable/default_border"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
@@ -62,13 +58,17 @@
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="50sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/noteContent"
+        android:id="@+id/addNoteContent"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="@drawable/default_border"
@@ -86,24 +86,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteName"
+        app:layout_constraintTop_toBottomOf="@+id/addNoteName"
         app:layout_constraintVertical_bias="0.302" />
 
     <Button
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="addNote"
         android:background="@drawable/default_border"
-        android:onClick="editNote"
-        android:text="SAVE"
+        android:text="Save"
         android:textSize="30dp"
         android:layout_marginBottom="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_save"
-        tools:srcCompat="@android:drawable/ic_menu_save" />
+         />
 
     <TextView
         android:id="@+id/note_name_hint"
@@ -116,7 +115,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/noteName"
+        app:layout_constraintBottom_toTopOf="@+id/addNoteName"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -130,7 +129,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/noteContent"
+        app:layout_constraintBottom_toTopOf="@+id/addNoteContent"
         app:layout_constraintStart_toStartOf="parent" />
 
 

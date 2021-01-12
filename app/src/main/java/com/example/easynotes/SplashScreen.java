@@ -1,9 +1,10 @@
 package com.example.easynotes;
-import android.content.Intent;
-import android.util.Log;
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreen extends AppCompatActivity {
     private static final String LOG_TAG = SplashScreen.class.getSimpleName();
@@ -24,8 +25,8 @@ public class SplashScreen extends AppCompatActivity {
         public void run() {
             try {
                 Thread.sleep(SPLASH_SHOW_TIME);
-            } catch (Exception e){
-                Log.e(LOG_TAG,"Thread.sleep failed");
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Thread.sleep failed");
             }
 
             Intent intent = new Intent(SplashScreen.this, MainActivity.class);

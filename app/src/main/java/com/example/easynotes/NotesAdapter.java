@@ -1,5 +1,6 @@
 package com.example.easynotes;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,18 +16,21 @@ import java.util.LinkedList;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
     private final LinkedList<HashMap<String, String>> notes;
-    private LayoutInflater mInflater;
+    private Activity activity;
+    private Context context;
 
 
-    public NotesAdapter(Context context, LinkedList<HashMap<String, String>> notes) {
-        mInflater = LayoutInflater.from(context);
+    public NotesAdapter(Activity activity, Context context, LinkedList<HashMap<String, String>> notes) {
+        this.activity = activity;
         this.notes = notes;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.noteslist_item,
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View mItemView = inflater.inflate(R.layout.noteslist_item,
                 parent, false);
         return new NoteViewHolder(mItemView, this);
     }
@@ -63,9 +67,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             int mPosition = getLayoutPosition();
             HashMap<String, String> element = notes.get(mPosition);
             Intent intent = new Intent(context, EditNote.class);
+            intent.putExtra("EXTRA_NOTE_ID", mPosition);
             intent.putExtra("EXTRA_NOTE_NAME", element.get("noteName"));
             intent.putExtra("EXTRA_NOTE_CONTENT", element.get("noteContent"));
-            context.startActivity(intent);
+            activity.startActivityForResult(intent, 1);
+//            mAdapter.notifyItemChanged(mPosition);
 //            newElement.put("noteName", "Clicked!");
 //            newElement.put("noteContent", "Content clicked!");
 //            notes.set(mPosition, newElement);
