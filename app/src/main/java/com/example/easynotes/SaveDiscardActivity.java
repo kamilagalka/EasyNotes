@@ -98,13 +98,13 @@ public abstract class SaveDiscardActivity extends AppCompatActivity implements S
         SensorManager.getOrientation(rot, orientation);
         float roll = orientation[2];
         int rollDeg = (int) Math.round(Math.toDegrees(roll));
-        if (rollDeg < -30 && rollDeg > -150) {
+        if (rollDeg < -50 && rollDeg > -130) {
             Log.i(LOG_TAG, "------------------LEFT---------------");
             stop();
             discardNote();
 
         }
-        if (rollDeg > 30 && rollDeg < 150) {
+        if (rollDeg > 50 && rollDeg < 130) {
             Log.i(LOG_TAG, "------------------RIGHT---------------");
             stop();
             saveNote();

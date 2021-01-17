@@ -18,8 +18,8 @@ public class AddNote extends SaveDiscardActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
-        noteNameEditText = (EditText) findViewById(R.id.addNoteName);
-        noteContentEditText = (EditText) findViewById(R.id.addNoteContent);
+        noteNameEditText = (EditText) findViewById(R.id.noteName);
+        noteContentEditText = (EditText) findViewById(R.id.noteContent);
 
         noteNameEditText.setText("");
         noteContentEditText.setText("");

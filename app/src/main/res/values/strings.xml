@@ -8,6 +8,10 @@
     <string name="my_notes_heading">My notes</string>
     <string name="add">Add</string>
     <string name="plus">+</string>
-    <string name="edit_note_heading">Edit note</string>
+    <string name="edit_note_heading">Your note</string>
     <string name="add_note_heading">Add note</string>
+    <string name="save">SAVE</string>
+    <string name="discard">DISCARD</string>
+    <string name="note_name">Note name</string>
+    <string name="note_content">Note content</string>
 </resources>
