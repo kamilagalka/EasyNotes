@@ -1,15 +1,12 @@
 package com.example.easynotes;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-
-public class EditNote extends AppCompatActivity {
+public class EditNote extends SaveDiscardActivity {
     private static final String LOG_TAG = EditNote.class.getSimpleName();
     String noteId;
     String noteName;
@@ -18,7 +15,7 @@ public class EditNote extends AppCompatActivity {
     private EditText noteContentEditText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
 
@@ -33,7 +30,10 @@ public class EditNote extends AppCompatActivity {
         noteContentEditText.setText(noteContent);
     }
 
-    public void editNote(View view) {
+
+
+    @Override
+    public void saveNote() {
         DatabaseHelper myDB = new DatabaseHelper(EditNote.this);
         noteName = noteNameEditText.getText().toString().trim();
         noteContent = noteContentEditText.getText().toString().trim();
@@ -41,13 +41,14 @@ public class EditNote extends AppCompatActivity {
 
 //        String editedNoteName = noteNameEditText.getText().toString();
 //        String editedNoteContent = noteContentEditText.getText().toString();
-        Log.d(LOG_TAG, noteId+"");
+        Log.d(LOG_TAG, noteId + "");
         Log.d(LOG_TAG, noteName);
         Log.d(LOG_TAG, noteContent);
         finish();
     }
 
-    public void discardEdition(View view) {
+    @Override
+    public void discardNote() {
         Log.d(LOG_TAG, "Discarding edition");
         finish();
     }

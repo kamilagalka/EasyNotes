@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SaveDiscardActivity"></activity>
         <activity android:name=".AddNote" />
         <activity android:name=".EditNote" />
         <activity android:name=".MyNotes" />
@@ -18,6 +19,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

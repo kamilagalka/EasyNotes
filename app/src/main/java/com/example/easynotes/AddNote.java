@@ -1,23 +1,20 @@
 package com.example.easynotes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-public class AddNote extends AppCompatActivity {
+public class AddNote extends SaveDiscardActivity {
 
     private static final String LOG_TAG = AddNote.class.getSimpleName();
-    String noteId;
     String noteName;
     String noteContent;
     private EditText noteNameEditText;
     private EditText noteContentEditText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
@@ -28,7 +25,9 @@ public class AddNote extends AppCompatActivity {
         noteContentEditText.setText("");
     }
 
-    public void addNote(View view) {
+
+    @Override
+    public void saveNote() {
         DatabaseHelper myDB = new DatabaseHelper(AddNote.this);
         noteName = noteNameEditText.getText().toString().trim();
         noteContent = noteContentEditText.getText().toString().trim();
@@ -39,11 +38,14 @@ public class AddNote extends AppCompatActivity {
         Log.d(LOG_TAG, noteName);
         Log.d(LOG_TAG, noteContent);
         finish();
+        super.stop();
     }
 
-    public void discardAddition(View view) {
+
+    @Override
+    public void discardNote() {
         Log.d(LOG_TAG, "Discarding addition");
         finish();
-
+        super.stop();
     }
 }
