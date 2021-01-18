@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.656" />
 
     <Button
-        android:id="@+id/about_author_button"
+        android:id="@+id/author_bio_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/default_border"
@@ -41,7 +41,7 @@
         android:paddingLeft="15dp"
         android:paddingEnd="15dp"
         android:paddingRight="15dp"
-        android:text="@string/about_author_button_text"
+        android:text="@string/about_author"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"

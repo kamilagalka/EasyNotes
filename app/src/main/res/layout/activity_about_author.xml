@@ -8,7 +8,7 @@
     tools:context=".AboutAuthor">
 
     <ImageButton
-        android:id="@+id/help_button"
+        android:id="@+id/go_back_btn"
         android:layout_width="78dp"
         android:layout_height="59dp"
         android:adjustViewBounds="true"
@@ -18,51 +18,70 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/go_back_arrow" />
 
-
-    <ImageView
-        android:id="@+id/myImageView"
-        android:layout_width="226dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="68dp"
-        android:visibility="visible"
+    <TextView
+        android:id="@+id/about_author_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/about_author"
+        android:textColor="@color/colorPrimary"
+        android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/author_photo"
-        tools:srcCompat="@drawable/author_photo"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/author_name"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/about_author_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@id/author_bio_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/go_back_btn"/>
+
+    <Button
+        android:id="@+id/author_bio_btn"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:background="@drawable/default_border"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/author_name"
+        android:onClick="showAuthorBio"
+        android:text="@string/author_bio"
         android:textAllCaps="true"
-        android:textColor="@color/colorPrimary"
-        android:textSize="44sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myImageView" />
-
-    <TextView
-        android:id="@+id/about_author"
-        android:layout_width="300dp"
-        android:layout_height="263dp"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:text="@string/about_author"
-        android:textColor="@color/colorPrimary"
-        android:textSize="17sp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/author_name"
-        app:layout_constraintVertical_bias="0.217" />
+ />
+
+    <Button
+        android:id="@+id/settings_button_other"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/default_border"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="showGetInTouch"
+        android:text="@string/get_in_touch"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

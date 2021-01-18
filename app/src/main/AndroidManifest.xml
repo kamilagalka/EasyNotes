@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SaveDiscardActivity"></activity>
+        <activity android:name=".SaveDiscardActivity" />
         <activity android:name=".AddNote" />
         <activity android:name=".EditNote" />
         <activity android:name=".MyNotes" />

@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">EasyNotes</string>
     <string name="start_button_text">Let\'s go!</string>
-    <string name="about_author_button_text">About author</string>
     <string name="author_name">Kamila Gałka</string>
-    <string name="about_author">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="about_author_bio">I am a Computer Science student at Wrocław University of Science and Technology and a Software Developer. Usually I work with technologies such as Python, Docker and Airflow. Simple Notes is my first serious Android app.</string>
     <string name="made_by_info">Made by\nKamila Gałka</string>
     <string name="my_notes_heading">My notes</string>
     <string name="add">Add</string>
@@ -14,4 +13,9 @@
     <string name="discard">DISCARD</string>
     <string name="note_name">Note name</string>
     <string name="note_content">Note content</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_in_touch">Get in touch</string>
+    <string name="author_bio">Author bio</string>
+    <string name="about_author">About author</string>
 </resources>
