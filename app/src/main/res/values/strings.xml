@@ -18,4 +18,5 @@
     <string name="get_in_touch">Get in touch</string>
     <string name="author_bio">Author bio</string>
     <string name="about_author">About author</string>
+    <string name="instruction_text">Tilt your phone right to save your changes or left to discard them!</string>
 </resources>

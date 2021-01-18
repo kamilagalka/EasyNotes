@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -130,4 +132,19 @@ public abstract class SaveDiscardActivity extends AppCompatActivity implements S
     public abstract void saveNote();
 
     public abstract void discardNote();
+
+    public void showInstructionAlertDialog(View view) {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        View popUpView = getLayoutInflater().inflate(R.layout.instruction_alert_dialog, null);
+        alert.setView(popUpView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.show();
+
+        Button btn = alertDialog.findViewById(R.id.btn_ok);
+        if (btn != null) {
+            btn.setOnClickListener(v -> alertDialog.dismiss());
+        }
+    }
 }
