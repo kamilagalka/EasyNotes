@@ -12,8 +12,8 @@
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:background="@drawable/default_border"
-        android:drawableEnd="@drawable/arrow"
-        android:drawableRight="@drawable/arrow"
+        android:drawableEnd="@drawable/arrow_one"
+        android:drawableRight="@drawable/arrow_one"
         android:drawablePadding="5dip"
         android:fontFamily="sans-serif-condensed"
         android:onClick="letsGo"
@@ -66,15 +66,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/help_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="goToInfo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_help" />
 
     <ImageView
         android:id="@+id/logo"
