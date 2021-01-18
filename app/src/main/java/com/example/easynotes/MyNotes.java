@@ -103,11 +103,9 @@ public class MyNotes extends AppCompatActivity {
         SwipeToDeleteCallback swipeToDeleteCallback = new SwipeToDeleteCallback(this) {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-
-
                 final int position = viewHolder.getAdapterPosition();
                 final HashMap<String, String> item = notesAdapter.getData().get(position);
-
+                Log.i(LOG_TAG, "removeItem"+position);
                 notesAdapter.removeItem(position);
 
 
@@ -116,6 +114,7 @@ public class MyNotes extends AppCompatActivity {
                 snackbar.setAction("UNDO", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Log.i(LOG_TAG, "restore Item "+position);
 
                         notesAdapter.restoreItem(item, position);
                         recyclerView.scrollToPosition(position);

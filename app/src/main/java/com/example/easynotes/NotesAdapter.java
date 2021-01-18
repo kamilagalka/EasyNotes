@@ -3,6 +3,7 @@ package com.example.easynotes;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,6 +83,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
     public void removeItem(int position) {
         DatabaseHelper myDB = new DatabaseHelper(NotesAdapter.this.context);
         String elem_id = notes.get(position).get("noteId");
+        Log.i("removeItem", notes.toString());
         notes.remove(position);
         myDB.deleteOneRow(elem_id);
 
@@ -92,8 +94,17 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
     public void restoreItem(HashMap<String, String> item, int position) {
         DatabaseHelper myDB = new DatabaseHelper(NotesAdapter.this.context);
-        myDB.addNote(item.get("noteName"), item.get("noteContent"));
-        notes.add(position, item);
+        int itemPosition = myDB.addNote(item.get("noteName"), item.get("noteContent"));
+        HashMap<String, String> restored = new HashMap<String, String>();
+        restored.put("noteId", itemPosition+"");
+        restored.put("noteName", item.get("noteName"));
+        restored.put("noteContent", item.get("noteContent"));
+
+        Log.i("restoreItem", notes.toString());
+
+        notes.add(position, restored);
+        Log.i("restoreItem", notes.toString());
+
 
         notifyItemInserted(position);
         notifyItemRangeChanged(position, getItemCount());

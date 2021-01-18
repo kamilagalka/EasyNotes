@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addNote(String name, String content){
+    int addNote(String name, String content){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -55,9 +55,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             Log.i(LOG_TAG, "Failed to add note");
         }else {
-            Log.i(LOG_TAG, "Note added succesfully!");
-
+            Log.i(LOG_TAG, "Note added succesfully!" + name + " " + result);
         }
+        return (int) result;
     }
 
     Cursor readAllData(){
@@ -79,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.i(LOG_TAG, row_id+"");
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if(result != 1){
-            Log.i(LOG_TAG, "Failed to update note");
+            Log.i(LOG_TAG, "Failed to update note, passwd id was "+ row_id);
         }else {
             Log.i(LOG_TAG, "Note updated succesfully! "+ result);
         }
@@ -89,10 +89,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
-        if(result == -1){
-            Log.i(LOG_TAG, "Failed to delete note");
+        if(result == 0){
+            Log.i(LOG_TAG, "Failed to delete note, id was "+ row_id);
         }else {
-            Log.i(LOG_TAG, "Note deleted succesfully!: "+result);
+            Log.i(LOG_TAG, "Note deleted succesfully!: "+row_id);
         }
     }
 
