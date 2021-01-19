@@ -31,10 +31,10 @@ public class AddNote extends SaveDiscardActivity {
         DatabaseHelper myDB = new DatabaseHelper(AddNote.this);
         noteName = noteNameEditText.getText().toString().trim();
         noteContent = noteContentEditText.getText().toString().trim();
-        myDB.addNote(noteName, noteContent);
+        if (noteName.length() > 0 || noteContent.length() >0) {
+            myDB.addNote(noteName, noteContent);
+        }
 
-//        String editedNoteName = noteNameEditText.getText().toString();
-//        String editedNoteContent = noteContentEditText.getText().toString();
         Log.d(LOG_TAG, noteName);
         Log.d(LOG_TAG, noteContent);
         finish();
